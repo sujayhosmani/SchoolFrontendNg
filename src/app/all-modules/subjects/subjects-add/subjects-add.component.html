@@ -1,0 +1,63 @@
+<div class="content container-fluid">
+				
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="row align-items-center">
+      <div class="col">
+        <h3 class="page-title">Add Subject</h3>
+        <ul class="breadcrumb">
+          <li class="breadcrumb-item"><a href="subjects.html">Subject</a></li>
+          <li class="breadcrumb-item active">Add Subject</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- /Page Header -->
+
+  <div class="row">
+    <div class="col-sm-12">
+    
+      <div class="card">
+        <div class="card-body">
+          <form (ngSubmit)="addSubjects()" [formGroup]="addSubjectsForm">
+            <div class="row">
+              <div class="col-12">
+                <h5 class="form-title"><span>Subject Information</span></h5>
+              </div>
+              <div class="col-12 col-sm-6">  
+                <div class="form-group">
+                  <label>Subject ID</label>
+                  <input type="text" class="form-control" [class.invalid]="addSubjectsForm.get('SubjectCode').invalid && addSubjectsForm.get('SubjectCode').touched"
+                  formControlName="SubjectCode">
+                  <div
+                  *ngIf="addSubjectsForm.get('SubjectCode').invalid && addSubjectsForm.get('SubjectCode').touched">
+                  <small
+                      *ngIf="addSubjectsForm.get('SubjectCode').invalid && addSubjectsForm.get('SubjectCode').touched"
+                      class="text-danger"> *Subject ID is required</small>
+              </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Subject Name</label>
+                  <input type="text" class="form-control" [class.invalid]="addSubjectsForm.get('Subject').invalid && addSubjectsForm.get('Subject').touched"
+                  formControlName="Subject">
+                  <div
+                  *ngIf="addSubjectsForm.get('Subject').invalid && addSubjectsForm.get('Subject').touched">
+                  <small
+                      *ngIf="addSubjectsForm.get('Subject').invalid && addSubjectsForm.get('Subject').touched"
+                      class="text-danger"> *Subject name is required</small>
+              </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+    </div>					
+  </div>					
+</div>

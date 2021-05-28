@@ -1,0 +1,239 @@
+<div class="content container-fluid">
+				
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="row align-items-center">
+      <div class="col">
+        <h3 class="page-title">Add Students</h3>
+        <ul class="breadcrumb">
+          <li class="breadcrumb-item"><a href="students.html">Students</a></li>
+          <li class="breadcrumb-item active">Add Students</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- /Page Header -->
+
+  <div class="row">
+    <div class="col-sm-12">
+    
+      <div class="card">
+        <div class="card-body">
+          <form (ngSubmit)="addStudents()" [formGroup]="addStudentsForm">
+            <div class="row">
+              <div class="col-12">
+                <h5 class="form-title"><span>Student Information</span></h5>
+              </div>
+              <div class="col-12 col-sm-6">  
+                <div class="form-group">
+                  <label>First Name</label>
+                  <input type="text" class="form-control" [class.invalid]="addStudentsForm.get('Name').invalid && addStudentsForm.get('Name').touched"
+                  formControlName="Name">
+                  <div
+                  *ngIf="addStudentsForm.get('Name').invalid && addStudentsForm.get('Name').touched">
+                  <small
+                      *ngIf="addStudentsForm.get('Name').invalid && addStudentsForm.get('Name').touched"
+                      class="text-danger"> *Name is required</small>
+              </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-sm-6">  
+                <div class="form-group">
+                  <label>Admission No</label>
+                  <input type="text" class="form-control" [class.invalid]="addStudentsForm.get('AdmissionNo').invalid && addStudentsForm.get('AdmissionNo').touched"
+                  formControlName="AdmissionNo">
+                  <div
+                  *ngIf="addStudentsForm.get('AdmissionNo').invalid && addStudentsForm.get('AdmissionNo').touched">
+                  <small
+                      *ngIf="addStudentsForm.get('AdmissionNo').invalid && addStudentsForm.get('AdmissionNo').touched"
+                      class="text-danger"> *AdmissionNo is required</small>
+              </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Gender</label>
+                  <select class="form-control" formControlName="Gender" [class.invalid]="addStudentsForm.get('Gender').invalid && addStudentsForm.get('Gender').touched">
+                    <option>Select Gender</option>
+                    <option>Female</option>
+                    <option>Male</option>
+                    <option>Others</option>
+                    </select>
+                    <div
+                  *ngIf="addStudentsForm.get('Gender').invalid && addStudentsForm.get('Gender').touched">
+                  <small
+                      *ngIf="addStudentsForm.get('Gender').invalid && addStudentsForm.get('Gender').touched"
+                      class="text-danger"> *Gender is required</small>
+              </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Date of Birth</label>
+                  <div>
+                    <input type="date" class="form-control" [class.invalid]="addStudentsForm.get('DateOfBirth').invalid && addStudentsForm.get('DateOfBirth').touched"
+                    formControlName="DateOfBirth">
+                    <div
+                    *ngIf="addStudentsForm.get('DateOfBirth').invalid && addStudentsForm.get('DateOfBirth').touched">
+                    <small
+                        *ngIf="addStudentsForm.get('DateOfBirth').invalid && addStudentsForm.get('DateOfBirth').touched"
+                        class="text-danger"> *DateOfBirth is required</small>
+                </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Class</label>
+                  <input type="text" class="form-control" [class.invalid]="addStudentsForm.get('Class').invalid && addStudentsForm.get('Class').touched"
+                  formControlName="Class">
+                  <small
+                  *ngIf="addStudentsForm.get('Class').invalid && addStudentsForm.get('Class').touched"
+                  class="text-danger"> *Class is required</small>
+    
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Section</label>
+                  <input type="text" class="form-control" [class.invalid]="addStudentsForm.get('Section').invalid && addStudentsForm.get('Section').touched"
+                  formControlName="Section">
+                  <small
+                  *ngIf="addStudentsForm.get('Section').invalid && addStudentsForm.get('Section').touched"
+                  class="text-danger"> *Section is required</small>
+    
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Father Name</label>
+                  <input type="text" class="form-control"  [class.invalid]="addStudentsForm.get('FatherName').invalid && addStudentsForm.get('FatherName').touched"
+                  formControlName="FatherName">
+                  <small
+                  *ngIf="addStudentsForm.get('FatherName').invalid && addStudentsForm.get('FatherName').touched"
+                  class="text-danger"> *FatherName is required</small>
+    
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Father Ph</label>
+                  <input type="text" class="form-control"  [class.invalid]="addStudentsForm.get('FatherPh').invalid && addStudentsForm.get('FatherPh').touched"
+                  formControlName="FatherPh">
+                  <small
+                  *ngIf="addStudentsForm.get('FatherPh').invalid && addStudentsForm.get('FatherPh').touched"
+                  class="text-danger"> *Father Ph is required</small>
+    
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Mother Name</label>
+                  <input type="text" class="form-control"  [class.invalid]="addStudentsForm.get('MotherName').invalid && addStudentsForm.get('MotherName').touched"
+                  formControlName="MotherName">
+                  <small
+                  *ngIf="addStudentsForm.get('MotherName').invalid && addStudentsForm.get('MotherName').touched"
+                  class="text-danger"> *Mother Name is required</small>
+    
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Mother Ph</label>
+                  <input type="text" class="form-control"  [class.invalid]="addStudentsForm.get('MotherPh').invalid && addStudentsForm.get('MotherPh').touched"
+                  formControlName="MotherPh">
+                  <small
+                  *ngIf="addStudentsForm.get('MotherPh').invalid && addStudentsForm.get('MotherPh').touched"
+                  class="text-danger"> *Mother Ph is required</small>
+    
+                </div>
+              </div>
+
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Joining Date</label>
+                  <div>
+                    <input type="date" class="form-control" [class.invalid]="addStudentsForm.get('DateOfJoining').invalid && addStudentsForm.get('DateOfJoining').touched"
+                    formControlName="DateOfJoining">
+                    <div
+                    *ngIf="addStudentsForm.get('DateOfJoining').invalid && addStudentsForm.get('DateOfJoining').touched">
+                    <small
+                        *ngIf="addStudentsForm.get('DateOfJoining').invalid && addStudentsForm.get('DateOfJoining').touched"
+                        class="text-danger"> *Joining is required</small>
+                </div>
+                  </div>
+                </div>
+              </div>
+
+             
+
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Total Paid Fee</label>
+                  <input type="text" class="form-control"  [class.invalid]="addStudentsForm.get('TotalPaidFee').invalid && addStudentsForm.get('TotalPaidFee').touched"
+                  formControlName="TotalPaidFee">
+                  <small
+                  *ngIf="addStudentsForm.get('TotalPaidFee').invalid && addStudentsForm.get('TotalPaidFee').touched"
+                  class="text-danger"> *Total Paid Fee is required</small>
+    
+                </div>
+              </div>
+
+            
+              
+              
+              <div class="col-12">
+                <h5 class="form-title"><span>Additional Information</span></h5>
+              </div>
+             
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Father's Occupation</label>
+                  <input type="text" formControlName="FatherOccupation" class="form-control">
+                </div>
+              </div>
+             
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Mother's Occupation</label>
+                  <input type="text" formControlName="MotherOccupation" class="form-control">
+                </div>
+              </div>
+
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Email Id</label>
+                  <input type="email" formControlName="Email" class="form-control">
+                </div>
+              </div>
+
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Student Image</label>
+                  <input #takeInput type="file"  (change)="handleFileInput($event,$event.target.files)" accept="image/*" class="form-control">
+                </div>
+              </div>
+
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Current Address</label>
+                  <textarea formControlName="CurrentAddress" class="form-control"></textarea>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Permanent Address</label>
+                  <textarea formControlName="PermanentAddress" class="form-control" ></textarea>
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>							
+    </div>					
+  </div>					
+</div>

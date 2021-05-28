@@ -1,0 +1,159 @@
+<div class="content container-fluid">
+				
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="row align-items-center">
+      <div class="col">
+        <h3 class="page-title">Edit Time Table</h3>
+        <!-- <ul class="breadcrumb">
+          <li class="breadcrumb-item"><a href="time-table.html">Time Table</a></li>
+          <li class="breadcrumb-item active">Add Time Table</li>
+        </ul> -->
+      </div>
+    </div>
+  </div>
+  
+  <!-- /Page Header -->
+  <div class="row" style="display: flex; justify-content: space-between; padding-left: 20px; padding-right: 30px;">
+    <h2>{{classValue}}th {{sectionValue}}</h2>
+    <h2 *ngIf="classTeacher == null">      CTR not assigned</h2>
+    <h2 *ngIf="classTeacher != null">{{classTeacher?.FirstName}}</h2>
+    <div class="form-group row">
+        <div >  
+          <select disabled="true" class="form-control"   [(ngModel)]="classValue">
+            <option *ngFor="let option of allClasses" [value]="option">
+               {{option}} 
+            </option>
+          </select>
+       
+      </div>
+      <div style="width: 10px;"></div>
+      <div>  
+        <select disabled="true" class="form-control"  [(ngModel)]="sectionValue">
+          <option *ngFor="let option of sections" [value]="option">
+             {{option}} 
+          </option>
+        </select>
+    </div>
+    <div style="width: 10px;"></div>
+      <!-- <button disabled="true" (click)="onSubmitClicked()" class="btn btn-success mr-2">submit</button> -->
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-sm-12">
+
+      <div class="card">
+        <div *ngIf="from == 'cts'" class="card-body">
+            <div>
+              <div class="col-12">
+                <h5 class="form-title"><span>Subject - Teacher Linking</span></h5>
+              </div>
+              <div class="card card-table">
+                  <div class="table-responsive table-border">
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th *ngFor="let subject of apiCTSModel" scope="col">
+                            {{getSubjectById(subject.SubjectId)}}
+                          </th>
+                         
+                        
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td *ngFor="let cts of apiCTSModel;let i = index">
+                              <select class="form-control" (change)="onTeacherChanged($event.target.value, i)" [(ngModel)]="cts.TID">
+                                <option *ngFor="let option of allTeachers;let j = index" [value]="option.Id">
+                                   {{option.FirstName}} 
+                                </option>
+                              </select>
+                          </td>
+                          
+                         
+                          
+                        </tr>
+                      
+                      </tbody>
+                    </table>
+                  </div>
+                  <div style="margin-top: 1px; text-align: right;">
+                    <button (click)="onSubmitClicked()" class="btn btn-primary" style="width: 300px;">Update</button>
+                  </div>
+                  
+              </div>
+            </div>
+        </div>
+    
+        <div *ngIf="from == 'time'" class="row">
+          <div class="col-sm-12">
+            
+            <div class="card-table">
+              <div class="table-responsive table-border">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">Actions</th>
+                        <th scope="col">5th B</th>
+                        <th scope="col">Monday</th>
+                        <th scope="col">Tuesday</th>
+                        <th scope="col">Wednesday</th>
+                        <th scope="col">Thursday</th>
+                        <th scope="col">Friday</th>
+                        <th scope="col">Saturday</th>
+                      
+                      </tr>
+                    </thead>
+                    <tbody>    
+                      <tr *ngFor="let dynamic of timeTableArray2; let i = index;">    
+                        <td class="actions" (click)="deleteRow(i)">    
+                          <a class="btn btn-sm bg-danger-light ml-2">
+                            <i class="fas fa-trash"></i>
+                          </a>
+                       </td>    
+                         <td>   
+                          <div class="col-12">
+                            <div class="form-group">
+                              <input type="time" class="form-control"  [(ngModel)]="timeTableArray2[i].FromTime" (change)="onFromDateChanged(i)">
+                            </div>
+                          </div>
+                          <div class="col-12">
+                            <div class="form-group">
+                              <input type="time" class="form-control" [(ngModel)]="timeTableArray2[i].EndTime">
+                            </div>
+                          </div>
+                              
+                         </td>    
+                         <td *ngFor="let weekArray of timeTableArray2[i].weekSub; let j = index;">  
+                           <select  class="form-control"  [(ngModel)]="timeTableArray2[i].weekSub[j].CTSId">
+                            <option *ngFor="let subject of apiCTSModel" [value]="subject.Id">
+                              {{getSubjectById(subject.SubjectId)}}
+                            </option>
+                          </select>
+                           <!-- <input [(ngModel)]="timeTableArray2[i].weekSub[j].CTSId" class="form-control" type="text" />     -->
+                         </td>    
+                        
+                     </tr>    
+                     <tr>    
+                      <td class="actions" (click)="addRow()">    
+                        <a class="btn btn-sm bg-success-light ml-2">
+                          <i class="fas fa-plus"></i>
+                        </a>
+                     </td>     
+                     </tr>    
+                 </tbody> 
+                  </table>
+                </div>
+                <div style="margin-top: 1px; text-align: right;">
+                  <button (click)="onTimeTableSubmitted()" class="btn btn-primary" style="width: 300px;">Submit Time Table</button>
+                </div>			
+            </div>		
+           		
+          </div>					
+        </div>				
+      
+    </div>					
+  </div>					
+</div>

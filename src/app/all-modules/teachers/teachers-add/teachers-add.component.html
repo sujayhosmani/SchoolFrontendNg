@@ -1,0 +1,234 @@
+<div class="content container-fluid">
+				
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="row align-items-center">
+      <div class="col">
+        <h3 class="page-title">Add Teachers</h3>
+        <ul class="breadcrumb">
+          <li class="breadcrumb-item"><a href="teachers.html">Teachers</a></li>
+          <li class="breadcrumb-item active">Add Teachers</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- /Page Header -->
+
+  <div class="row">
+    <div class="col-sm-12">
+    
+      <div class="card">
+        <div class="card-body">
+          <form (ngSubmit)="addTeachers()" [formGroup]="addTeacherForm">
+            <div class="row">
+              <div class="col-12">
+                <h5 class="form-title"><span>Basic Details</span></h5>
+              </div>
+              <div class="col-12 col-sm-6">  
+                <div class="form-group">
+                  <label>Teacher ID</label>
+                  <input type="text" class="form-control" [class.invalid]="addTeacherForm.get('TeacherId').invalid && addTeacherForm.get('TeacherId').touched"
+                  formControlName="TeacherId">
+                  <div
+                  *ngIf="addTeacherForm.get('TeacherId').invalid && addTeacherForm.get('TeacherId').touched">
+                  <small
+                      *ngIf="addTeacherForm.get('TeacherId').invalid && addTeacherForm.get('TeacherId').touched"
+                      class="text-danger"> *Teacher ID is required</small>
+              </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Name</label>
+                  <input type="text" class="form-control" [class.invalid]="addTeacherForm.get('Name').invalid && addTeacherForm.get('Name').touched"
+                  formControlName="Name">
+                  <div
+                  *ngIf="addTeacherForm.get('Name').invalid && addTeacherForm.get('Name').touched">
+                  <small
+                      *ngIf="addTeacherForm.get('Name').invalid && addTeacherForm.get('Name').touched"
+                      class="text-danger"> *Teacher name is required</small>
+              </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Gender</label>
+                  <select class="form-control" [class.invalid]="addTeacherForm.get('Gender').invalid && addTeacherForm.get('Gender').touched"
+                  formControlName="Gender">
+                    <option value = "Male">Male</option>
+                    <option value = "Female">Female</option> 
+                    <option value = "Others">Others</option>
+                  </select>
+                  <div
+                  *ngIf="addTeacherForm.get('Gender').invalid && addTeacherForm.get('Gender').touched">
+                  <small
+                      *ngIf="addTeacherForm.get('Gender').invalid && addTeacherForm.get('Gender').touched"
+                      class="text-danger"> *Gender is required</small>
+              </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Date of Birth</label>
+                  <input type="date" class="form-control" formControlName="DateOfBirth">
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Mobile</label>
+                  <input type="text" class="form-control" [class.invalid]="addTeacherForm.get('TeacherPh').invalid && addTeacherForm.get('TeacherPh').touched"
+                  formControlName="TeacherPh">
+                  <div
+                  *ngIf="addTeacherForm.get('TeacherPh').invalid && addTeacherForm.get('TeacherPh').touched">
+                  <small
+                      *ngIf="addTeacherForm.get('TeacherPh').invalid && addTeacherForm.get('TeacherPh').touched"
+                      class="text-danger"> *Ph number is required</small>
+              </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Joining Date</label>
+                  <input type="date" class="form-control" formControlName="DateOfJoining">
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Qualification</label>
+                  <input class="form-control" type="text" formControlName="Qualification">
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Experience</label>
+                  <input class="form-control" type="text" formControlName="Experience">
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Is Class Teacher?</label>
+                  <select class="form-control" [class.invalid]="addTeacherForm.get('isCTR').invalid && addTeacherForm.get('isCTR').touched"
+                  formControlName="isCTR">
+                    <option value = "Male">Yes</option>
+                    <option value = "Female">No</option> 
+                  </select>
+                  <div
+                  *ngIf="addTeacherForm.get('isCTR').invalid && addTeacherForm.get('isCTR').touched">
+                  <small
+                      *ngIf="addTeacherForm.get('isCTR').invalid && addTeacherForm.get('isCTR').touched"
+                      class="text-danger"> *is CTR is required</small>
+              </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-sm-3">
+                  <div class="form-group">
+                    <label>Class</label>
+                    <input type="text" class="form-control" [class.invalid]="addTeacherForm.get('isCTRClass').invalid && addTeacherForm.get('isCTRClass').touched"
+                    formControlName="isCTRClass">
+                    <div
+                    *ngIf="addTeacherForm.get('isCTRClass').invalid && addTeacherForm.get('isCTRClass').touched">
+                    <small
+                        *ngIf="addTeacherForm.get('isCTRClass').invalid && addTeacherForm.get('isCTRClass').touched"
+                        class="text-danger"> *Teacher name is required</small>
+                </div>
+                  </div>
+              </div>
+
+              <div class="col-12 col-sm-3">
+                <div class="form-group">
+                  <label>Section</label>
+                  <input type="text" class="form-control" [class.invalid]="addTeacherForm.get('isCTRSection').invalid && addTeacherForm.get('isCTRSection').touched"
+                  formControlName="isCTRSection">
+                  <div
+                  *ngIf="addTeacherForm.get('isCTRSection').invalid && addTeacherForm.get('isCTRSection').touched">
+                  <small
+                      *ngIf="addTeacherForm.get('isCTRSection').invalid && addTeacherForm.get('isCTRSection').touched"
+                      class="text-danger"> *Teacher name is required</small>
+              </div>
+                </div>
+            </div>
+
+
+            <div class="col-12">
+              <h5 ><span> </span></h5>
+            </div>
+
+              <div class="col-12">
+                <h4 class="form-title"><span>Additional Details</span></h4>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Teacher Image</label>
+                  <input #takeInput type="file"  (change)="handleFileInput($event,$event.target.files)" accept="image/*" class="form-control">
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Email ID</label>
+                  <input type="email" class="form-control" formControlName="Email">
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Description</label>
+                  <input type="text" class="form-control" formControlName="Description">
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Subjects</label>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              <div class="col-12">
+                <h5 class="form-title"><span>Address</span></h5>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                <label>Address</label>
+                  <input type="text" class="form-control" [class.invalid]="addTeacherForm.get('FullAddress').invalid && addTeacherForm.get('FullAddress').touched"
+                  formControlName="FullAddress">
+                  <div
+                  *ngIf="addTeacherForm.get('FullAddress').invalid && addTeacherForm.get('FullAddress').touched">
+                  <small
+                      *ngIf="addTeacherForm.get('FullAddress').invalid && addTeacherForm.get('FullAddress').touched"
+                      class="text-danger"> *Address is required</small>
+              </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>City</label>
+                  <input type="text" class="form-control" formControlName="City">
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Location</label>
+                  <input type="text" class="form-control" formControlName="Location">
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>State</label>
+                  <input type="text" class="form-control" formControlName="State">
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-group">
+                  <label>Pincode</label>
+                  <input type="text" class="form-control" formControlName="Pin">
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+    </div>					
+  </div>					
+</div>

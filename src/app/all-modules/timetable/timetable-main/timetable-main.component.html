@@ -1,0 +1,143 @@
+<div class="content container-fluid">
+				
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="row align-items-center">
+      <div class="col">
+        <h3 class="page-title">Time Table</h3>
+        <ul class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+          <li class="breadcrumb-item active">Time Table </li>
+        </ul>
+      </div>
+      <div class="col-auto text-right float-right ml-auto">
+        <a *ngIf="timeTables == null && classTeacher != null" (click)="onAddClicked()" class="btn btn-outline-primary mr-2"><i class="fas fa-plus"></i> Add Time Table</a>
+      </div>
+      <div *ngIf="classTeacher == null" class="col-auto text-center">
+        <a (click)="onAddClicked()" class="btn btn-outline-secondary"><i class="fas fa-plus"></i> Assign Class teacher</a>
+      </div>  
+    </div>
+  </div>
+  <!-- /Page Header -->
+  <div class="row" style="display: flex; justify-content: space-between; padding-left: 20px; padding-right: 30px;">
+    <h2>{{classValue}}th {{sectionValue}}</h2>
+    <h2 *ngIf="classTeacher == null">      CTR not assigned</h2>
+    <h2 *ngIf="classTeacher != null">{{classTeacher?.FirstName}}</h2>
+    <div class="form-group row">
+        <div >  
+          <select class="form-control"  (change)="onSectionChanged($event.target.value)" [(ngModel)]="classValue">
+            <option *ngFor="let option of allClasses" [value]="option">
+               {{option}} 
+            </option>
+          </select>
+       
+      </div>
+      <div style="width: 10px;"></div>
+      <div>  
+        <select class="form-control"  (change)="onSectionChanged($event.target.value)" [(ngModel)]="sectionValue">
+          <option *ngFor="let option of sections" [value]="option">
+             {{option}} 
+          </option>
+        </select>
+    </div>
+    <div style="width: 10px;"></div>
+      <button (click)="onSubmitClicked()" class="btn btn-outline-success mr-2">submit</button>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card card-table">
+        
+        <div *ngIf="classTeacher == null" class="col-auto text-center">
+          <h2 class="card-body text-center" style="color: lightcoral;">Please Assign Class teacher first to add time table</h2>
+          <a (click)="onAddClicked()" class="btn btn-outline-secondary"><i class="fas fa-plus"></i> Assign Class teacher</a>
+          <p></p>
+        </div>  
+        
+        <div *ngIf="timeTables == null && classTeacher != null" class="col-auto text-center">
+          <h3 class="card-body text-center" style="color: lightcoral;">Time table not added yet by class teacher</h3>
+          <a  (click)="onAddClicked()" class="btn btn-outline-secondary"><i class="fas fa-plus"></i> Add Time Table</a>
+          <p></p>
+        </div>  
+        <div *ngIf="timeTables != null && timeTables?.length > 0" class="table-responsive table-border">
+            <table class="table table-bordered">
+              <thead style="background-color: aliceblue;">
+                <tr>
+                  <th scope="col">5th B</th>
+                  <th scope="col">Monday</th>
+                  <th scope="col">Tuesday</th>
+                  <th scope="col">Wednesday</th>
+                  <th scope="col">Thursday</th>
+                  <th scope="col">Friday</th>
+                  <th scope="col">Saturday</th>
+                
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let time of timeTables; let i = index;">
+                  <th style="background-color: aliceblue;" scope="row" >{{time.FromTime}} - {{time.EndTime}}</th>
+                  <td *ngFor="let weekArray of time.weekSub; let j = index;">
+                    {{getSubjectByID(weekArray.CTSId)}}
+                  </td>
+                 
+                  
+                </tr>
+                
+              </tbody>
+            </table>
+            <div  class="col-auto text-right">
+              <a (click)="onEditTimeTableClicked()" class="btn btn-outline-secondary"><i class="fas fa-edit"></i> Edit Time table</a>
+            </div>  
+          </div>
+          
+
+
+          <div style="margin-top: 20px;" *ngIf="timeTables != null && timeTables?.length > 0">
+            <div class="col-12">
+              <h5 class="form-title"><span>Subject - Teacher Linking</span></h5>
+            </div>
+            <div class="card card-table">
+                <div class="table-responsive table-border">
+                  <table class="table table-bordered">
+                    <thead style="background-color: blanchedalmond;">
+                      <tr>
+                        <th *ngFor="let subject of apiCTSModel" scope="col">
+                          {{getSubjectBtId(subject.SubjectId)}}
+                        </th>
+                       
+                      
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td *ngFor="let cts of apiCTSModel;let i = index">
+                            {{getTeacherById(cts.TID)}}
+                        </td>
+                        
+                       
+                        
+                      </tr>
+                    
+                    </tbody>
+                  </table>
+                  <div  class="col-auto text-right">
+                    <a (click)="onEditCTSClicked()" class="btn btn-outline-primary"><i class="fas fa-edit"></i> Edit Teacher for subject</a>
+                  </div>  
+                </div>
+                
+                
+            </div>
+          </div>
+
+
+      </div>							
+    </div>					
+  </div>					
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>Copyright © 2020 Dreamguys.</p>					
+</footer>
+<!-- /Footer -->
