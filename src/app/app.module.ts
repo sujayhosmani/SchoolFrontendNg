@@ -1,5 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { ErrorHandler, NgModule } from "@angular/core";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -11,11 +11,14 @@ import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
 import { ForgotpasswordComponent } from "./forgotpassword/forgotpassword.component";
 import { ErrorpageComponent } from "./errorpage/errorpage.component";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { ToastrModule } from "ngx-toastr";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatDialogModule } from '@angular/material/dialog';
 import { ProgressService } from "./Helpers/progress.service";
+import { ApplicationInsightsErrorHandler } from "./AppInsights/ErrorHandler";
+import { ApplicationInsightsService } from "./AppInsights/ApplicationInsightsService";
+import { httpInterceptorProviders } from "./interceptor/index.interceptor";
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -49,6 +52,13 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG,
     },
+    {  
+      provide: ErrorHandler,  
+      useClass: ApplicationInsightsErrorHandler  
+  },
+  
+    ApplicationInsightsService,
+    httpInterceptorProviders,
     ProgressService
   ],
   bootstrap: [AppComponent],

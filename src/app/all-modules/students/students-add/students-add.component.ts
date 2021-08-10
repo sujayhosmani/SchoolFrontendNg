@@ -58,10 +58,9 @@ export class StudentsAddComponent implements OnInit {
   handleFileInput($event, file) {
     this.file = file;
     console.log(this.file[0].size);
-    if (this.addStudentsForm.valid) {
+    if (!this.addStudentsForm.valid) {
       this.file = file;
-      console.log(this.file.fileData.size);
-      // this.uploadImage();
+      this.uploadImage();
     }else{
       this.InputVar.nativeElement.value = "";
       this.toastr.warning("Please fill all mandatory fields before uploading image");
@@ -70,7 +69,7 @@ export class StudentsAddComponent implements OnInit {
   }
 
   uploadImage() {
-    if (this.addStudentsForm.valid) {
+    if (!this.addStudentsForm.valid) {
       console.log(this.file);
       if (this.file.length === 0) {
         return;
@@ -93,7 +92,7 @@ export class StudentsAddComponent implements OnInit {
       console.log("key", formData.get("FileName"));
 
 
-      const uploadReq = new HttpRequest('POST', `api/FileUpload`, formData, {
+      const uploadReq = new HttpRequest('POST', AppConstants.fileUpload, formData, {
         reportProgress: true,
       });
 

@@ -29,6 +29,7 @@
     "@fullcalendar/interaction": "^5.4.0",
     "@fullcalendar/resource-timegrid": "^5.4.0",
     "@fullcalendar/timegrid": "^5.4.0",
+    "@microsoft/applicationinsights-web": "^2.6.2",
     "angular-datatables": "^10.0.0",
     "angular-in-memory-web-api": "^0.11.0",
     "apexcharts": "^3.22.2",

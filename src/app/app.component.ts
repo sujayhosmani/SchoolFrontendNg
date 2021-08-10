@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { ApplicationInsightsService } from "./AppInsights/ApplicationInsightsService";
 
 declare const $: any;
 @Component({
@@ -9,6 +10,10 @@ declare const $: any;
 export class AppComponent implements OnInit {
   title = "preskool";
 
+  constructor(private ApplicationInsightsService: ApplicationInsightsService){
+    
+
+  }
   ngOnInit() {
     $(".sidebar-overlay").on("click", function () {
       var $wrapper = $(".main-wrapper");

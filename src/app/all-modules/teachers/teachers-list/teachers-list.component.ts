@@ -14,6 +14,7 @@ export class TeachersListComponent implements OnInit {
   public dtOptions: DataTables.Settings = {};
   public dtTrigger: Subject<any> = new Subject();
   public lstTeachers: any[];
+  dummy: String;
   public url: any = "teachersList";
   constructor(private srvModuleService: AllModulesService) {}
 
@@ -28,6 +29,8 @@ export class TeachersListComponent implements OnInit {
   }
   // Get teachers List  Api Call
   loadTeachers() {
+    // this.dummy.toLowerCase();
+    // console.log(this.dummy);
     this.srvModuleService.get(this.url).subscribe((data) => {
       this.lstTeachers = data;
       this.dtTrigger.next();

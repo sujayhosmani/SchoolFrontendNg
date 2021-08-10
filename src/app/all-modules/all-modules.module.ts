@@ -13,6 +13,7 @@ import { HttpClientModule } from "@angular/common/http";
 // import { AllModulesData } from "src/assets/all-modules-data/all-modules-data";
 import { AllModulesService } from "./all-modules.service";
 import { ShareDataService } from "./share-data.service";
+import { httpInterceptorProviders } from "../interceptor/index.interceptor";
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -29,6 +30,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   ],
   providers: [
     AllModulesService,
+    httpInterceptorProviders,
     ShareDataService,
     {
       provide: PERFECT_SCROLLBAR_CONFIG,

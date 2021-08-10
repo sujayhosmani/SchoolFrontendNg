@@ -4,6 +4,9 @@
 
 export const environment = {
   production: false,
+  appInsights: {  
+    instrumentationKey: '81fbfe96-0ee2-4f29-bf2a-1eedde946886'  
+}  
 };
 
 /*
