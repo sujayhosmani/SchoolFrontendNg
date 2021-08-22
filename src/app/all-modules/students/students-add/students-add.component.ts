@@ -144,6 +144,7 @@ export class StudentsAddComponent implements OnInit {
       if (response[AppConstants.res.status] == 1) {
         //TODO: clear FormBuilder
         this.toastr.success("Students added sucessfully...!", "Success");
+        this.router.navigateByUrl("/students/students-list")
 
       }
     }else{

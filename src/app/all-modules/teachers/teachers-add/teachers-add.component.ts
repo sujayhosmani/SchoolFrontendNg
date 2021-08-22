@@ -148,6 +148,7 @@ export class TeachersAddComponent implements OnInit {
       if (response[AppConstants.res.status] == 1) {
         //TODO: clear FormBuilder
         this.toastr.success("Teacher added sucessfully...!", "Success");
+        this.router.navigateByUrl("/teachers/teachers-list")
 
       }
     }
