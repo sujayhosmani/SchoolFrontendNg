@@ -149,5 +149,8 @@ export class TeachersAddComponent implements OnInit {
 
       }
     }
+    else{
+      this.toastr.warning("Please fill all mandatory fields before uploading image");
+    }
   }
 }
