@@ -28,7 +28,7 @@
                   >Student List</a
                 >
               </li>
-              <li>
+              <!-- <li>
                 <a
                   [ngClass]="[
                     active2Route === 'students-details' ? 'active' : ''
@@ -37,7 +37,7 @@
                   routerLink="/students/students-details"
                   >Student View</a
                 >
-              </li>
+              </li> -->
               <li>
                 <a
                   [ngClass]="[active2Route === 'students-add' ? 'active' : '']"
@@ -46,14 +46,14 @@
                   >Student Add</a
                 >
               </li>
-              <li>
+              <!-- <li>
                 <a
                   [ngClass]="[active2Route === 'students-edit' ? 'active' : '']"
                   (click)="setActive()"
                   routerLink="/students/students-edit"
                   >Student Edit</a
                 >
-              </li>
+              </li> -->
             </ul>
           </li>
           <li [ngClass]="[activeRoute === 'teachers' ? 'active' : 'submenu']">
@@ -72,7 +72,7 @@
                   >Teacher List</a
                 >
               </li>
-              <li>
+              <!-- <li>
                 <a
                   [ngClass]="[
                     active2Route === 'teachers-details' ? 'active' : ''
@@ -81,7 +81,7 @@
                   routerLink="/teachers/teachers-details"
                   >Teacher View</a
                 >
-              </li>
+              </li> -->
               <li>
                 <a
                   [ngClass]="[active2Route === 'teachers-add' ? 'active' : '']"
@@ -90,58 +90,17 @@
                   >Teacher Add</a
                 >
               </li>
-              <li>
+              <!-- <li>
                 <a
                   [ngClass]="[active2Route === 'teachers-edit' ? 'active' : '']"
                   (click)="setActive()"
                   routerLink="/teachers/teachers-edit"
                   >Teacher Edit</a
                 >
-              </li>
+              </li> -->
             </ul>
           </li>
-          <li
-            [ngClass]="[activeRoute === 'departments' ? 'active' : 'submenu']"
-          >
-            <a
-              [ngClass]="[activeRoute === 'departments' ? 'active' : '']"
-              (click)="setActive()"
-              ><i class="fas fa-building"></i> <span> Departments</span>
-              <span class="menu-arrow"></span
-            ></a>
-            <ul>
-              <li>
-                <a
-                  [ngClass]="[
-                    active2Route === 'departments-list' ? 'active' : ''
-                  ]"
-                  (click)="setActive()"
-                  routerLink="/departments/departments-list"
-                  >Department List</a
-                >
-              </li>
-              <li>
-                <a
-                  [ngClass]="[
-                    active2Route === 'departments-add' ? 'active' : ''
-                  ]"
-                  (click)="setActive()"
-                  routerLink="/departments/departments-add"
-                  >Department Add</a
-                >
-              </li>
-              <li>
-                <a
-                  [ngClass]="[
-                    active2Route === 'departments-edit' ? 'active' : ''
-                  ]"
-                  (click)="setActive()"
-                  routerLink="/departments/departments-edit"
-                  >Department Edit</a
-                >
-              </li>
-            </ul>
-          </li>
+        
           <li [ngClass]="[activeRoute === 'subjects' ? 'active' : 'submenu']">
             <a
               [ngClass]="[activeRoute === 'subjects' ? 'active' : '']"
@@ -166,22 +125,28 @@
                   >Subject Add</a
                 >
               </li>
-              <li>
+              <!-- <li>
                 <a
                   [ngClass]="[active2Route === 'subjects-edit' ? 'active' : '']"
                   (click)="setActive()"
                   routerLink="/subjects/subjects-edit"
                   >Subject Edit</a
                 >
-              </li>
+              </li> -->
             </ul>
+          </li>
+          <li [ngClass]="[activeRoute === 'timetable' ? 'active' : '']">
+            <a routerLink="/timetable/timetable-main" (click)="setActive()"
+              ><i class="fas fa-table"></i> <span>Time Table</span></a
+            >
           </li>
 
           <li class="menu-title">
-            <span>Management</span>
+            <!-- <span>Management</span> -->
+            <span>Customized Options</span>
           </li>
 
-          <li [ngClass]="[activeRoute === 'accounts' ? 'active' : 'submenu']">
+          <!-- <li [ngClass]="[activeRoute === 'accounts' ? 'active' : 'submenu']">
             <a
               [ngClass]="[activeRoute === 'accounts' ? 'active' : '']"
               (click)="setActive()"
@@ -208,7 +173,7 @@
                 (click)="setActive()"
                 routerLink="/accounts/add-salary">Add Salary</a></li>
             </ul>
-          </li>
+          </li> -->
           <li [ngClass]="[activeRoute === 'holiday' ? 'active' : '']">
             <a routerLink="/holiday/holiday-main" (click)="setActive()"
               ><i class="fas fa-holly-berry"></i> <span>Holiday</span></a
@@ -229,20 +194,58 @@
               ><i class="fas fa-calendar-day"></i> <span>Events</span></a
             >
           </li>
-          <li [ngClass]="[activeRoute === 'timetable' ? 'active' : '']">
-            <a routerLink="/timetable/timetable-main" (click)="setActive()"
-              ><i class="fas fa-table"></i> <span>Time Table</span></a
-            >
-          </li>
+         
           <li [ngClass]="[activeRoute === 'library' ? 'active' : '']">
             <a routerLink="/library/library-main" (click)="setActive()"
               ><i class="fas fa-book"></i> <span>Library</span></a
             >
           </li>
-
+          <li
+          [ngClass]="[activeRoute === 'departments' ? 'active' : 'submenu']"
+        >
+          <a
+            [ngClass]="[activeRoute === 'departments' ? 'active' : '']"
+            (click)="setActive()"
+            ><i class="fas fa-building"></i> <span> Departments</span>
+            <span class="menu-arrow"></span
+          ></a>
+          <ul>
+            <li>
+              <a
+                [ngClass]="[
+                  active2Route === 'departments-list' ? 'active' : ''
+                ]"
+                (click)="setActive()"
+                routerLink="/departments/departments-list"
+                >Department List</a
+              >
+            </li>
+            <li>
+              <a
+                [ngClass]="[
+                  active2Route === 'departments-add' ? 'active' : ''
+                ]"
+                (click)="setActive()"
+                routerLink="/departments/departments-add"
+                >Department Add</a
+              >
+            </li>
+            <li>
+              <a
+                [ngClass]="[
+                  active2Route === 'departments-edit' ? 'active' : ''
+                ]"
+                (click)="setActive()"
+                routerLink="/departments/departments-edit"
+                >Department Edit</a
+              >
+            </li>
+          </ul>
+        </li>
+      <!-- 
           <li class="menu-title">
             <span>Pages</span>
-          </li>
+          </li> 
 
           <li [ngClass]="[activeRoute === 'login' ? 'active' : 'submenu']">
             <a [ngClass]="[activeRoute === 'login' ? 'active' : '']"
@@ -261,7 +264,7 @@
             <a routerLink="/blankpage/blankpage-main" (click)="setActive()"
               ><i class="fas fa-file"></i> <span>Blank Page</span></a
             >
-          </li>
+          </li> -->
 
           <li class="menu-title">
             <span>Others</span>
@@ -282,7 +285,7 @@
               ><i class="fas fa-bus"></i> <span>Transport</span></a
             >
           </li>
-          <li class="menu-title">
+         <!-- <li class="menu-title">
             <span>UI Interface</span>
           </li>
           <li [ngClass]="[activeRoute === 'components' ? 'active' : '']">
@@ -364,7 +367,7 @@
                 <a href="javascript:void(0);"> <span>Level 1</span></a>
               </li>
             </ul>
-          </li>
+          </li> -->
         </ul>
       </div>
     </perfect-scrollbar>
