@@ -121,8 +121,10 @@ export class TimetableMainComponent implements OnInit {
       this.router.navigateByUrl("/timetable/timetable-add", {state: {std: this.classValue, section: this.sectionValue,teacher: this.classTeacher }});
     }else{
         if(this.classTeacher == null){
-          this.toastr.error("Please assign class tracher for " + this.classValue + "th " + this.sectionValue);
+          this.router.navigateByUrl("/teachers/teachers-add");
+          //this.toastr.error("Please assign class tracher for " + this.classValue + "th " + this.sectionValue);
         }else if(this.timeTables != null){
+          this.router.navigateByUrl("/timetable/timetable-add");
           this.toastr.error("Already Time table present for " + this.classValue + "th " + this.sectionValue);
         }
     }

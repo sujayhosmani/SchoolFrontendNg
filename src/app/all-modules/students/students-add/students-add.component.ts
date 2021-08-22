@@ -20,6 +20,8 @@ export class StudentsAddComponent implements OnInit {
   public addStudentsForm: FormGroup;
   file: any;
   progress: Number;
+  sections: String[] = AppConstants.sections;
+  allClasses: String[] = AppConstants.classes;
   public student: Student;
   public pipe = new DatePipe("en-US");
   constructor(

@@ -86,8 +86,11 @@
               <div class="col-12 col-sm-6">
                 <div class="form-group">
                   <label>Class</label>
-                  <input type="text" class="form-control" [class.invalid]="addStudentsForm.get('Class').invalid && addStudentsForm.get('Class').touched"
-                  formControlName="Class">
+                  <select class="form-control"   formControlName="Class">
+                    <option *ngFor="let option of allClasses" [value]="option">
+                       {{option}} 
+                    </option>
+                  </select>
                   <small
                   *ngIf="addStudentsForm.get('Class').invalid && addStudentsForm.get('Class').touched"
                   class="text-danger"> *Class is required</small>
@@ -97,8 +100,11 @@
               <div class="col-12 col-sm-6">
                 <div class="form-group">
                   <label>Section</label>
-                  <input type="text" class="form-control" [class.invalid]="addStudentsForm.get('Section').invalid && addStudentsForm.get('Section').touched"
-                  formControlName="Section">
+                  <select class="form-control"   formControlName="Section">
+                    <option *ngFor="let option of sections" [value]="option">
+                       {{option}} 
+                    </option>
+                  </select>
                   <small
                   *ngIf="addStudentsForm.get('Section').invalid && addStudentsForm.get('Section').touched"
                   class="text-danger"> *Section is required</small>

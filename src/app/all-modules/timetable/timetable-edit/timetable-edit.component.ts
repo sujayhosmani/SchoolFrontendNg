@@ -57,6 +57,7 @@ export class TimetableEditComponent implements OnInit {
     var response = await this.srvModuleService.performRequest(AppConstants.addTimeTable, AppConstants.method.post, ttBody);
       if (response[AppConstants.res.status] == 1) {
         this.toastr.success("Time table added sucessfully...!", "Success");
+        this.route.navigateByUrl("/timetable/timetable-main");
       }    
   }
 

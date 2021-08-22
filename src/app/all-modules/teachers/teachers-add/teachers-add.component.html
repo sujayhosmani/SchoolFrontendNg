@@ -124,8 +124,11 @@
               <div class="col-12 col-sm-3">
                   <div class="form-group">
                     <label>Class</label>
-                    <input type="text" class="form-control" [class.invalid]="addTeacherForm.get('isCTRClass').invalid && addTeacherForm.get('isCTRClass').touched"
-                    formControlName="isCTRClass">
+                    <select class="form-control"   formControlName="isCTRClass">
+                      <option *ngFor="let option of allClasses" [value]="option">
+                         {{option}} 
+                      </option>
+                    </select>
                     <div
                     *ngIf="addTeacherForm.get('isCTRClass').invalid && addTeacherForm.get('isCTRClass').touched">
                     <small
@@ -138,8 +141,11 @@
               <div class="col-12 col-sm-3">
                 <div class="form-group">
                   <label>Section</label>
-                  <input type="text" class="form-control" [class.invalid]="addTeacherForm.get('isCTRSection').invalid && addTeacherForm.get('isCTRSection').touched"
-                  formControlName="isCTRSection">
+                  <select class="form-control"   formControlName="isCTRSection">
+                    <option *ngFor="let option of sections" [value]="option">
+                       {{option}} 
+                    </option>
+                  </select>
                   <div
                   *ngIf="addTeacherForm.get('isCTRSection').invalid && addTeacherForm.get('isCTRSection').touched">
                   <small

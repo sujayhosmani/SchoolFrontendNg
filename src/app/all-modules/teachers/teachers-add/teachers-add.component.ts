@@ -19,6 +19,8 @@ export class TeachersAddComponent implements OnInit {
   @ViewChild('takeInput', {static: false})
   InputVar: ElementRef;
   addTeacherForm: FormGroup;
+  sections: String[] = AppConstants.sections;
+  allClasses: String[] = AppConstants.classes;
   file: any;
   progress: Number;
   _imageUrl = "";
