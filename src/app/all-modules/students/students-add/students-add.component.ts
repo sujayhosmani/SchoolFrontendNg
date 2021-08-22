@@ -33,21 +33,21 @@ export class StudentsAddComponent implements OnInit {
   ngOnInit() {
     this.student = new Student();
     this.addStudentsForm = this.formBuilder.group({
-      Name: ["Sujay", [Validators.required]],
-      AdmissionNo: ["2323", [Validators.required]],
-      Gender: ["Male", [Validators.required]],
+      Name: ["", [Validators.required]],
+      AdmissionNo: ["", [Validators.required]],
+      Gender: ["", [Validators.required]],
       DateOfBirth: ["", [Validators.required]],
-      Class: ["5", [Validators.required]],
-      Section: ["G", [Validators.required]],
-      FatherName: ["Siddaraj", [Validators.required]],
-      MotherName: ["Sunanda", [Validators.required]],
-      MotherPh: ["8778777878", [Validators.required]],
-      FatherPh: ["878787887", [Validators.required]],
-      TotalPaidFee: ["33333", [Validators.required]],
-      DateOfJoining: ["15-12-2020", [Validators.required]],
+      Class: ["", [Validators.required]],
+      Section: ["", [Validators.required]],
+      FatherName: ["", [Validators.required]],
+      MotherName: ["", [Validators.required]],
+      MotherPh: ["", [Validators.required]],
+      FatherPh: ["", [Validators.required]],
+      TotalPaidFee: ["", [Validators.required]],
+      DateOfJoining: ["", [Validators.required]],
       Email: [""],
-      FatherOccupation: ["wdf"],
-      MotherOccupation: ["sdf"],
+      FatherOccupation: [""],
+      MotherOccupation: [""],
       PermanentAddress: [""],
       CurrentAddress: [""],
     });
@@ -144,6 +144,8 @@ export class StudentsAddComponent implements OnInit {
         this.toastr.success("Students added sucessfully...!", "Success");
 
       }
+    }else{
+      this.toastr.warning("Please fill all mandatory fields");
     }
   }
 }

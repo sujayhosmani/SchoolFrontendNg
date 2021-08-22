@@ -10,7 +10,7 @@ export const AppConstants = {
     login: AppSettings.BaseUrl + 'login',
     register: AppSettings.BaseUrl + 'registration',
     addStudent: AppSettings.BaseUrl + 'school/add',
-    addSubject: AppSettings.BaseUrl + 'school/addSubject',
+    addSubject: AppSettings.BaseUrl + 'timetable/addSubject',
     deleteSubject: AppSettings.BaseUrl + 'school/delSubject',
     addTeacher: AppSettings.BaseUrl + 'Teachers/add',
     getCTR: AppSettings.BaseUrl + 'Teachers/getClassTeacher',
