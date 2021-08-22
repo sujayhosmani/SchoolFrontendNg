@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, OnDestroy } from "@angular/core";
 import { DataTableDirective } from "angular-datatables";
 import { Subject } from "rxjs";
+import { AllModulesData } from "src/assets/all-modules-data/all-modules-data";
 import { AllModulesService } from "../../all-modules.service";
 
 @Component({
@@ -28,10 +29,12 @@ export class DepartmentsListComponent implements OnInit, OnDestroy {
   }
   // Get Departments List  Api Call
   loadDepartments() {
-    this.srvModuleService.get(this.url).subscribe((data) => {
-      this.lstDepartments = data;
-      this.dtTrigger.next();
-    });
+    var data = new AllModulesData();
+    this.lstDepartments = data.departments();
+    // this.srvModuleService.get(this.url).subscribe((data) => {
+    //   this.lstDepartments = data;
+    //   this.dtTrigger.next();
+    // });
   }
   // destroy data table when leaving
   ngOnDestroy(): void {

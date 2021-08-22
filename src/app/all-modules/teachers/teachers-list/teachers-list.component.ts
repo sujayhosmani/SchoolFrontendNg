@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { DataTableDirective } from "angular-datatables";
 import { Subject } from "rxjs";
+import { AppConstants } from "src/app/Helpers/Constants";
 import { AllModulesService } from "../../all-modules.service";
 
 @Component({
@@ -20,25 +21,24 @@ export class TeachersListComponent implements OnInit {
 
   ngOnInit() {
     this.loadTeachers();
-    // for data table configuration
     this.dtOptions = {
-      // ... skipped ...
+      "searching": true,
       pageLength: 10,
       dom: "lrtip",
     };
   }
   // Get teachers List  Api Call
-  loadTeachers() {
-    // this.dummy.toLowerCase();
-    // console.log(this.dummy);
-    this.srvModuleService.get(this.url).subscribe((data) => {
-      this.lstTeachers = data;
-      this.dtTrigger.next();
-    });
-  }
-  // destroy data table when leaving
-  ngOnDestroy(): void {
-    // Do not forget to unsubscribe the event
-    this.dtTrigger.unsubscribe();
-  }
+    async loadTeachers() {
+      let Users = await this.srvModuleService.performRequest(AppConstants.getAllTeachers,AppConstants.method.get, null);
+      console.log(Users);
+      if(Users[AppConstants.res.status] == 1){
+        this.lstTeachers = Users[AppConstants.res.data];
+        this.dtTrigger.next();
+      }
+      console.log(Users);
+    }
+  
+    ngOnDestroy(): void {
+      this.dtTrigger.unsubscribe();
+    }
 }

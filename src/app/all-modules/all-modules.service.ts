@@ -8,6 +8,7 @@ import { AppConstants, AppSettings } from "../Helpers/Constants";
 import { ProgressService } from "../Helpers/progress.service";
 import { ToastrService } from "ngx-toastr";
 import { CustomResponse } from "../models/CustomResponse";
+import { AllModulesData } from "src/assets/all-modules-data/all-modules-data";
 
 @Injectable({
   providedIn: "root",
@@ -144,10 +145,13 @@ export class AllModulesService {
 
   // Get Method Api
   get(type) {
+    var ffsd: AllModulesData = new AllModulesData();
+    
     this.apiurl = `api/${type}`;
     return this.http
       .get<any[]>(this.apiurl)
       .pipe(tap(), catchError(this.handleError));
+      // return ffsd.departments();
   }
 
   // Post Method Api
