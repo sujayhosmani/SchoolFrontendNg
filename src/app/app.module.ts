@@ -19,7 +19,21 @@ import { ProgressService } from "./Helpers/progress.service";
 import { ApplicationInsightsErrorHandler } from "./AppInsights/ErrorHandler";
 import { ApplicationInsightsService } from "./AppInsights/ApplicationInsightsService";
 import { httpInterceptorProviders } from "./interceptor/index.interceptor";
+import { FullCalendarModule } from "@fullcalendar/angular";
+import dayGridPlugin from "@fullcalendar/daygrid"; // a plugin
+import { Calendar } from '@fullcalendar/core'; 
+import bootstrapPlugin from '@fullcalendar/bootstrap';
+import resourceTimeGridPlugin from '@fullcalendar/resource-timegrid';
+import interactionPlugin from "@fullcalendar/interaction";
 
+
+FullCalendarModule.registerPlugins([
+  // register FullCalendar plugins
+  dayGridPlugin,
+  interactionPlugin,
+  resourceTimeGridPlugin,
+  bootstrapPlugin
+]);
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -40,6 +54,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     PerfectScrollbarModule,
     DataTablesModule,
     MatDialogModule,
+    FullCalendarModule,
     HttpClientModule,
     ToastrModule.forRoot({
       timeOut: 1500,

@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { Calendar } from '@fullcalendar/core';
+import dayGridPlugin from '@fullcalendar/daygrid';
 import { ApplicationInsightsService } from "./AppInsights/ApplicationInsightsService";
 
 declare const $: any;
@@ -9,10 +11,14 @@ declare const $: any;
 })
 export class AppComponent implements OnInit {
   title = "preskool";
+  calendarOptions = {
+    plugins: [dayGridPlugin],
+    initialView: 'dayGridMonth'
+  };
 
   constructor(private ApplicationInsightsService: ApplicationInsightsService){
     
-
+    const name = Calendar.name;
   }
   ngOnInit() {
     $(".sidebar-overlay").on("click", function () {

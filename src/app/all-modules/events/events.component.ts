@@ -1,5 +1,7 @@
 import { Component, OnInit, HostListener, NgZone } from "@angular/core";
 import { Router } from "@angular/router";
+import { Calendar } from '@fullcalendar/core';
+import dayGridPlugin from '@fullcalendar/daygrid';
 
 @HostListener("window: resize", ["$event"])
 @Component({
@@ -9,8 +11,13 @@ import { Router } from "@angular/router";
 })
 export class EventsComponent implements OnInit {
   public innerHeight: any;
+  calendarOptions = {
+    plugins: [dayGridPlugin],
+    initialView: 'dayGridMonth'
+  };
 
   constructor(private ngZone: NgZone, private router: Router) {
+    const name = Calendar.name;
     window.onresize = (e) => {
       this.ngZone.run(() => {
         this.innerHeight = window.innerHeight + "px";

@@ -53,7 +53,7 @@ export class EventsMainComponent implements OnInit {
 
     // Full calendar Plugin configuration
     this.calendarOptions = {
-      plugins: [dayGridPlugin, interactionPlugin, bootstrapPlugin],
+      // plugins: [dayGridPlugin, interactionPlugin, bootstrapPlugin],
       editable: true,
       themeSystem: "bootstrap",
       events: [],
